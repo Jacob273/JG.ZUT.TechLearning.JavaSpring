@@ -1,0 +1,5 @@
+lab01/.settings/org.eclipse.core.resources.prefs
+lab01/.settings/org.eclipse.jdt.core.prefs
+lab01/.settings/org.eclipse.m2e.core.prefs
+lab01/target/classes/edu/zut/spring/service/HelloService.class
+lab01/target/classes/edu/zut/spring/service/HelloServiceImpl.class
