@@ -3,3 +3,9 @@ lab01/.settings/org.eclipse.jdt.core.prefs
 lab01/.settings/org.eclipse.m2e.core.prefs
 lab01/target/classes/edu/zut/spring/service/HelloService.class
 lab01/target/classes/edu/zut/spring/service/HelloServiceImpl.class
+lab01/target/classes/edu/zut/spring/main/App.class
+lab01/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst
+lab01/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst
+lab01/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst
+lab01/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst
+lab01/target/lab01-0.0.1-SNAPSHOT.jar
