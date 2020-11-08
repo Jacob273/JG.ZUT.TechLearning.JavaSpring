@@ -12,27 +12,27 @@ public abstract class AbstractLogic implements IBaseLogic {
 	}
 	
 	@Override
-	public void SetInputs(ArrayList<Integer> inputList) {
+	public void setInputs(ArrayList<Integer> inputList) {
 		_inputs = inputList;
 	}
 
 	@Override
-	public void AddInput(Integer input) {
+	public void addInput(Integer input) {
 		_inputs.add(input);
 	}
 
 	@Override
-	public Integer GetOutput() {
+	public Integer getOutput() {
 		return _output;
 	}
 
 	@Override
-	public ArrayList<Integer> GetInputs() {
+	public ArrayList<Integer> getInputs() {
 		return _inputs;
 	}
 	
 	@Override
-	public void Clear() {
+	public void clear() {
 		if(_inputs != null) {
 			_inputs.clear();
 		}

@@ -17,28 +17,28 @@ public class App {
 		
 		
 		// Verifying OrLogic
-		orLogic.AddInput(0);
-		orLogic.AddInput(0);
-		orLogic.AddInput(1);
+		orLogic.addInput(0);
+		orLogic.addInput(0);
+		orLogic.addInput(1);
 		out.println("Inputs for OR:");
-		for(Integer input : orLogic.GetInputs())
+		for(Integer input : orLogic.getInputs())
 		{
 			out.println(String.format("values: <%s> ", input));
 		}
-		orLogic.Evaluate();
-		out.println(String.format("The result of OR evaluation: <%s> ", orLogic.GetOutput()));
+		orLogic.evaluate();
+		out.println(String.format("The result of OR evaluation: <%s> ", orLogic.getOutput()));
 		
 		
 		// Verifying AndLogic
-		andLogic.AddInput(1);
-		andLogic.AddInput(1);
+		andLogic.addInput(1);
+		andLogic.addInput(1);
 		out.println("Inputs for AND:");
-		for(Integer input : andLogic.GetInputs())
+		for(Integer input : andLogic.getInputs())
 		{
 			out.println(String.format("values: <%s> ", input));
 		}
-		andLogic.Evaluate();
-		out.println(String.format("The result of AND evaluation: <%s> ", andLogic.GetOutput()));
+		andLogic.evaluate();
+		out.println(String.format("The result of AND evaluation: <%s> ", andLogic.getOutput()));
 	}
 
 }

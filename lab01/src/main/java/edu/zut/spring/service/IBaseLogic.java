@@ -3,11 +3,11 @@ import java.util.ArrayList;
 
 public interface IBaseLogic {
 	
-	public void SetInputs(ArrayList<Integer> inputList);
-	public ArrayList<Integer> GetInputs();
-	public void AddInput(Integer input);
-	public void Clear();
-	public void Evaluate();
-	public Integer GetOutput();
+	public void setInputs(ArrayList<Integer> inputList);
+	public ArrayList<Integer> getInputs();
+	public void addInput(Integer input);
+	public void clear();
+	public void evaluate();
+	public Integer getOutput();
 	
 }

@@ -3,7 +3,7 @@ package edu.zut.spring.service;
 public class OrLogicImpl extends AbstractLogic {
 
 	@Override
-	public void Evaluate() {
+	public void evaluate() {
 		Integer result = 0;
 		for(Integer input : _inputs)
 		{

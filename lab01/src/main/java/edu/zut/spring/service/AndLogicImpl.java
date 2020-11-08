@@ -3,7 +3,7 @@ package edu.zut.spring.service;
 public class AndLogicImpl extends AbstractLogic {
 
 	@Override
-	public void Evaluate() {
+	public void evaluate() {
 		Integer result = _inputs.get(0);
 		for(Integer input : _inputs)
 		{
