@@ -4,5 +4,6 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
 	<bean id="helloService" class="edu.zut.spring.service.HelloServiceImpl" />
-
+	<bean id="orLogic" class="edu.zut.spring.service.OrLogicImpl" />
+	<bean id="andLogic" class="edu.zut.spring.service.AndLogicImpl" />
 </beans>
