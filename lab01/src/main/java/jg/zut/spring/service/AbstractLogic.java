@@ -1,4 +1,4 @@
-package edu.zut.spring.service;
+package jg.zut.spring.service;
 
 import java.util.ArrayList;
 

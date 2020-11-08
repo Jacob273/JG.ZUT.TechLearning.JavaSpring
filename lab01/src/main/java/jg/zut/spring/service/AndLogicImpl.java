@@ -1,4 +1,4 @@
-package edu.zut.spring.service;
+package jg.zut.spring.service;
 
 public class AndLogicImpl extends AbstractLogic {
 

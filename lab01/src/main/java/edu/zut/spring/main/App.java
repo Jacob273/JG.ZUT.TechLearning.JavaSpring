@@ -3,8 +3,8 @@ package edu.zut.spring.main;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import edu.zut.spring.service.IBaseLogic;
 import edu.zut.spring.service.MsgService;
+import jg.zut.spring.service.IBaseLogic;
 
 import static java.lang.System.out;
 

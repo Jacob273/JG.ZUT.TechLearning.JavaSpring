@@ -4,6 +4,6 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
 	<bean id="msgService" class="edu.zut.spring.service.MsgServiceImpl" scope="singleton" />
-	<bean id="orLogic" class="edu.zut.spring.service.OrLogicImpl" scope="prototype" />
-	<bean id="andLogic" class="edu.zut.spring.service.AndLogicImpl" scope="prototype" />
+	<bean id="orLogic" class="jg.zut.spring.service.OrLogicImpl" scope="prototype" />
+	<bean id="andLogic" class="jg.zut.spring.service.AndLogicImpl" scope="prototype" />
 </beans>
