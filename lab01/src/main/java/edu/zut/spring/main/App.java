@@ -4,6 +4,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import edu.zut.spring.service.MsgService;
+import jg.zut.spring.business.OnOffSwitchImpl;
 import jg.zut.spring.service.IBaseLogic;
 
 import static java.lang.System.out;
@@ -51,6 +52,10 @@ public class App {
 		msgService1.say();
 		msgService2.say();
 		
+		
+		OnOffSwitchImpl onOffSwitch = ctx.getBean("onOffSwitch", OnOffSwitchImpl.class);
+		onOffSwitch.enable();
+		onOffSwitch.disable();
 	}
 
 }
