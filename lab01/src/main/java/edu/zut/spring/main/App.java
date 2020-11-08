@@ -3,8 +3,9 @@ package edu.zut.spring.main;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import edu.zut.spring.service.HelloService;
 import edu.zut.spring.service.IBaseLogic;
+import edu.zut.spring.service.MsgService;
+
 import static java.lang.System.out;
 
 public class App {
@@ -39,6 +40,17 @@ public class App {
 		}
 		andLogic.evaluate();
 		out.println(String.format("The result of AND evaluation: <%s> ", andLogic.getOutput()));
+		
+		
+		MsgService msgService1 =  ctx.getBean("msgService", MsgService.class);
+		msgService1.setMessage("Setting message 111111111111111");
+		
+		MsgService msgService2 =  ctx.getBean("msgService", MsgService.class);
+		msgService2.setMessage("Setting message 222222222222222");
+		
+		msgService1.say();
+		msgService2.say();
+		
 	}
 
 }

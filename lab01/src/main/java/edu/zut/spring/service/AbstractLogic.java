@@ -11,6 +11,8 @@ public abstract class AbstractLogic implements IBaseLogic {
 		_output = 0;
 	}
 	
+	public abstract void evaluate();
+	
 	@Override
 	public void setInputs(ArrayList<Integer> inputList) {
 		_inputs = inputList;
