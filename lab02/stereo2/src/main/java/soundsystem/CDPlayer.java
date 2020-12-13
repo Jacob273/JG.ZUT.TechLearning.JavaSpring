@@ -3,14 +3,23 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 public class CDPlayer implements MediaPlayer {
-  private CompactDisc cd;
+  
+	@Autowired
+	private CompactDisc compactDisc;
 
-  public CDPlayer(CompactDisc cd) {
-    this.cd = cd;
-  }
+	  public CDPlayer() {
+	  }
+	
+	public void setcompactDisc(CompactDisc compactDisc){
+		this.compactDisc = compactDisc;
+	}
+	
+	public CompactDisc getCompactDisc(){
+		return compactDisc;
+	}
 
   public void play() {
-    cd.play();
+	  compactDisc.play();
   }
 
 }
