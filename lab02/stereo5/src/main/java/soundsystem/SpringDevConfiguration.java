@@ -10,6 +10,8 @@ import org.springframework.core.env.Environment;
 
 import java.util.Arrays;
 
+
+//spring configuration to be used on dev environment
 @Configuration
 @Profile("dev")
 @PropertySource("classpath:META-INF/spring/jg-app.properties")
@@ -17,12 +19,7 @@ public class SpringDevConfiguration {
 	
 	@Autowired
 	private Environment env;
-	
-	@Bean
-	public MediaPlayer mediaPlayer() {
-		return new CDPlayer();
-	}
-		
+
 	@Bean
 	public CompactDisc theQemistsDisc() { 
 		

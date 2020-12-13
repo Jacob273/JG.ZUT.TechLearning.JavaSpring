@@ -10,14 +10,11 @@ import org.springframework.core.env.Environment;
 
 import java.util.Arrays;
 
+
+//spring configuration to be used on production
 @Configuration
 @Profile("prod")
 public class SpringProdConfiguration {
-	
-	@Bean
-	public MediaPlayer mediaPlayer() {
-		return new CDPlayer();
-	}
 	
 	@Bean
 	public CompactDisc theFiftyCentDisc() {  

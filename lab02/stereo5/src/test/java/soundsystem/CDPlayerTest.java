@@ -15,16 +15,27 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import java.util.List;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(classes= {SpringTestConfiguration.class, 
+@ContextConfiguration(classes= {SpringBaseConfiguration.class,
+								SpringTestConfiguration.class, 
 								SpringDevConfiguration.class, 
-		                        SpringProdConfiguration.class})
-@ActiveProfiles("prod")
+		                        SpringProdConfiguration.class,
+		                        SpringInternalTestConfiguration.class})
+@ActiveProfiles("test")
 public class CDPlayerTest {
 
 	
 	  @Value("${spring.profiles.active:Unknown}")
 	  private String activeProfile;
 	
+	  @Value("#{testResultsWrapper.musicProfiles['prod']}")
+	  private String expectedTextToBePlayedOnProduction;
+	  
+	  @Value("#{testResultsWrapper.musicProfiles['dev']}")
+	  private String expectedTextToBePlayedOnDev;
+	  
+	  @Value("#{testResultsWrapper.musicProfiles['test']}")
+	  private String expectedTextToBePlayedOnTest;
+	  
 	  @Rule
 	  public final StandardOutputStreamLog log = new StandardOutputStreamLog();
 
@@ -36,26 +47,21 @@ public class CDPlayerTest {
 	  public void test1_playAndVerifyTitleAndArtistOnOutputStream() {
 		
 		player.play();
+		String played = log.getLog();
 		switch(activeProfile) 
 		{
 			case "test":
 			{
-				assertEquals(
-					"Playing Sgt. Pepper's Lonely Hearts Club Band by The Beatles", 
-					log.getLog());
+				assertEquals(expectedTextToBePlayedOnTest, played);
 			}
 			case "prod":
 			{
-				assertEquals(
-						"Playing Get rich or die trying by Fifty Cent", 
-						log.getLog());
+				assertEquals(expectedTextToBePlayedOnProduction, played);
 				break;
 			}
 			case "dev":
 			{
-				assertEquals(
-						"Playing Warrior Soundsystem by The Qemists", 
-						log.getLog());
+				assertEquals(expectedTextToBePlayedOnDev, played);
 				break;
 			}
 		}
