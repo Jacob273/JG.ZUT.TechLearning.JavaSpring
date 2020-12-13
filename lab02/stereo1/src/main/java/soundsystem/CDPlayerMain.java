@@ -6,15 +6,10 @@ public class CDPlayerMain {
 
 	public static void main(String[] args) {
 		
-		AnnotationConfigApplicationContext context =
-				new AnnotationConfigApplicationContext(
-				CDPlayerConfig.class);
-		
-		context.close();
-		
-		CompactDisc cd = new SgtPeppers();
-		MediaPlayer player = new CDPlayer(cd);
+		AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(CDPlayerConfig.class);
+		MediaPlayer player = context.getBean(MediaPlayer.class);
 		player.play();
+		context.close();
 	}
 
 }

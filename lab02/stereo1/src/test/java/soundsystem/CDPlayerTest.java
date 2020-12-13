@@ -8,6 +8,7 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.contrib.java.lang.system.StandardOutputStreamLog;
 import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
@@ -18,27 +19,24 @@ public class CDPlayerTest {
   @Rule
   public final StandardOutputStreamLog log = new StandardOutputStreamLog();
 
+  @Autowired 
   private MediaPlayer player;
-  
-  private CompactDisc cd;
-
-  @Before
-  public void init() {
-		cd = new SgtPeppers();
-		player = new CDPlayer(cd);
-  }
-  
+   
   @Test
-  public void cdShouldNotBeNull() {
-    assertNotNull(cd);
-  }
-
-  @Test
-  public void play() {
+  public void playAsExpectedTest1() {
     player.play();
     assertEquals(
         "Playing Sgt. Pepper's Lonely Hearts Club Band by The Beatles", 
         log.getLog());
   }
+  
+  @Test
+  public void playisNotEmptyTest2() {
+    player.play();
+    String message = log.getLog();
+    boolean notNullAndNotempty = message != null && !message.isEmpty();
+    assertEquals(notNullAndNotempty, true);
+  }
+  
 
 }
