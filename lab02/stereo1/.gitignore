@@ -11,4 +11,4 @@ exploration
 *.iml
 *.ipr
 *.iws
-*.class
+**.class
