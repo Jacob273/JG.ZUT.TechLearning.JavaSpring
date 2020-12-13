@@ -20,3 +20,9 @@ lab01/target/classes/jg/zut/spring/service/AndLogicImpl.class
 lab01/target/classes/jg/zut/spring/service/IBaseLogic.class
 lab01/target/classes/jg/zut/spring/service/OrLogicImpl.class
 **.class
+lab02/stereo1/target/classes/soundsystem/SgtPeppers.class
+lab02/stereo1/target/classes/soundsystem/MediaPlayer.class
+lab02/stereo1/target/classes/soundsystem/CompactDisc.class
+lab02/stereo1/target/classes/soundsystem/CDPlayerMain.class
+lab02/stereo1/target/classes/soundsystem/CDPlayerConfig.class
+lab02/stereo1/target/test-classes/soundsystem/CDPlayerTest.class
