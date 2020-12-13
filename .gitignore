@@ -19,3 +19,4 @@ lab01/target/classes/jg/zut/spring/service/AbstractLogic.class
 lab01/target/classes/jg/zut/spring/service/AndLogicImpl.class
 lab01/target/classes/jg/zut/spring/service/IBaseLogic.class
 lab01/target/classes/jg/zut/spring/service/OrLogicImpl.class
+**.class
