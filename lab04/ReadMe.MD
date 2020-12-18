@@ -1,7 +1,7 @@
 # MVC
 
-Short description:
-from msdn ( https://docs.microsoft.com/en-us/aspnet/core/mvc/overview?view=aspnetcore-5.0 )
+Short description
+from msdn ( https://docs.microsoft.com/en-us/aspnet/core/mvc/overview?view=aspnetcore-5.0 ):
 
 
 __The Model-View-Controller (MVC)__ architectural pattern separates an application into three main groups of components: Models, Views, and Controllers. 
