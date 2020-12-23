@@ -1,4 +1,7 @@
-# Code 
+# IoC
+__Inversion of control (IoC)__ is a programming principle. 
+
+IoC inverts the flow of control as compared to traditional control flow and is used to increase modularity of the program and make it extensible
 ## Stereo 1
 
 Ioc through java spring configuration
