@@ -12,4 +12,17 @@ import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseType;
 @Configuration
 public class DataConfig {
 
+	@Bean
+	public DataSource dataSource() {
+	return new EmbeddedDatabaseBuilder()
+		.setType(EmbeddedDatabaseType.H2)
+		.addScript("schema.sql") // import schematu bazy danych
+		.addScript("data.sql") // import danych testowych
+		.build();
+	}
+	
+	@Bean
+	public JdbcOperations jdbcTemplate(DataSource dataSource) {
+		return new JdbcTemplate(dataSource);
+	}
 }
