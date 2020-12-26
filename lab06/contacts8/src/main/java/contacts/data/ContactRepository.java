@@ -13,5 +13,7 @@ public interface ContactRepository {
 	void insert(Contact contact);
 
 	void update(Contact contact);
+	
+	void delete(long id);
 
 }
