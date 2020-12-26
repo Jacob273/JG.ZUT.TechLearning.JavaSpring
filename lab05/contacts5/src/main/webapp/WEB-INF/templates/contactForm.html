@@ -12,18 +12,22 @@
 			<tr>
 				<td>Imie</td>
 				<td><input type="text" th:field="*{firstName}"/></td>
+				<td th:errors="*{firstName}"></td>
 			</tr>
 			<tr>
 				<td>Nazwisko</td>
 				<td><input type="text" th:field="*{lastName}"/></td>
+				<td th:errors="*{lastName}"></td>
 			</tr>
 			<tr>
 				<td>Email</td>
 				<td><input type="email" th:field="*{email}"/></td>
+				<td th:errors="*{email}"></td>
 			</tr>
 			<tr>
 				<td>Telefon</td>
 				<td><input type="text" th:field="*{phone}"/></td>
+				<td th:errors="*{phone}"></td>
 			</tr>
 			<tr>
 				<td><input type="submit" value="Zapisz" /></td>

@@ -2,9 +2,12 @@ package contacts.web;
 
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -25,9 +28,16 @@ public class ContactController {
 		}
 		
 		@RequestMapping(value = "/create", method = RequestMethod.POST)
-		public String processContact(Contact contact) {
-				contactRepository.insert(contact);
-				return "redirect:/";
+		public String processContact(@Valid Contact contact, Errors errors) {
+				if(errors.hasErrors())
+				{
+					return "contactForm";
+				}
+				else 
+				{
+					contactRepository.insert(contact);
+					return "redirect:/";
+				}
 		}
 	  
 }
