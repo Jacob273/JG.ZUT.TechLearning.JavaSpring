@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Create contact</title>
+</head>
+<body>
+
+
+	<h1>Formularz</h1>
+	<form method="POST" th:object="${contact}">
+		<table>
+			<tr>
+				<td>Imie</td>
+				<td><input type="text" th:field="*{firstName}"/></td>
+			</tr>
+			<tr>
+				<td>Nazwisko</td>
+				<td><input type="text" th:field="*{lastName}"/></td>
+			</tr>
+			<tr>
+				<td>Email</td>
+				<td><input type="email" th:field="*{email}"/></td>
+			</tr>
+			<tr>
+				<td>Telefon</td>
+				<td><input type="text" th:field="*{phone}"/></td>
+			</tr>
+			<tr>
+				<td><input type="submit" value="Zapisz" /></td>
+			</tr>
+		</table>
+	</form>
+</body>
+</html>

@@ -43,4 +43,15 @@ public class JdbcContactRepository implements ContactRepository {
 							  );
 					}
 		}
+	
+	@Override
+	public void insert(Contact contact) {
+			jdbc.update("INSERT INTO Contact "
+			+ "(first_name, last_name, email, phone)"
+			+ " VALUES (?, ?, ?, ?)",
+			contact.getFirstName(),
+			contact.getLastName(),
+			contact.getEmail(),
+			contact.getPhone());
+	}
 }
