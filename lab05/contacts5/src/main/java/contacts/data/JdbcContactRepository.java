@@ -35,8 +35,12 @@ public class JdbcContactRepository implements ContactRepository {
 
 		@Override
 		public Contact mapRow(ResultSet rs, int rowNum) throws SQLException {
-			// TODO Auto-generated method stub
-			return null;
+			return new Contact(rs.getLong("id"),
+								rs.getString("first_name"),
+								rs.getString("last_name"),
+								rs.getString("email"),
+								rs.getString("phone")
+							  );
+					}
 		}
-	}
 }

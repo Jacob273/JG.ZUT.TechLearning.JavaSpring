@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:th="http://www.thymeleaf.org">
 <head>
-<title>contacts4</title>
+<title>contacts5</title>
 </head>
 <body>
 	<div id="header" th:include="page :: header"></div>
 	<div id="content">
-		<h1>Witamy w serwisie contacts4!</h1>
+		<h1>Witamy w serwisie contacts5!</h1>
 		<table border="1">
 			<thead>
 				<tr>
@@ -15,6 +15,7 @@
 					<th>Last Name</th>
 					<th>Email</th>
 					<th>Telephone</th>
+					<th>Id</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -26,6 +27,7 @@
 					<td th:text="${contact.lastName}"></td>
 					<td th:text="${contact.email}"></td>
 					<td th:text="${contact.phone}"></td>
+					<td th:text="${contact.id}"></td>
 				</tr>
 			</tbody>
 		</table>
