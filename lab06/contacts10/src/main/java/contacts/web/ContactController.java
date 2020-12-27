@@ -32,7 +32,7 @@ public class ContactController {
 		if (errors.hasErrors()) {
 			return "contactForm";
 		}
-		contactRepository.insert(contact);
+		contactRepository.save(contact);
 		return "redirect:/";
 	}
 
@@ -49,7 +49,7 @@ public class ContactController {
 		if (errors.hasErrors()) {  
 			return "contactForm";
 		}
-		contactRepository.update(contact);
+		contactRepository.save(contact);
 		return "redirect:/";
 	}
 	

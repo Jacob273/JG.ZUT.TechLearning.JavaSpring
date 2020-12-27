@@ -1,21 +1,15 @@
 package contacts.config;
 
-import java.io.IOException;
-import java.util.Properties;
-
 import javax.persistence.EntityManagerFactory;
 import javax.sql.DataSource;
 
-import org.hibernate.SessionFactory;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.jdbc.core.JdbcOperations;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseBuilder;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseType;
-import org.springframework.orm.hibernate4.HibernateTransactionManager;
-import org.springframework.orm.hibernate4.LocalSessionFactoryBean;
 import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.orm.jpa.vendor.Database;
@@ -26,16 +20,17 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @Configuration
 @EnableTransactionManagement
 @ComponentScan
+@EnableJpaRepositories(basePackages="contacts.data")
 public class DataConfig {
 
-  @Bean
-  public DataSource dataSource() {
-    return new EmbeddedDatabaseBuilder()
-            .setType(EmbeddedDatabaseType.H2)
-            .addScript("schema.sql")
-            .addScript("data.sql")
-            .build();
-  }
+	@Bean
+	public DataSource dataSource() {
+	  return new EmbeddedDatabaseBuilder()
+			  .setType(EmbeddedDatabaseType.H2)
+			  .addScript("schema.sql")
+			  .addScript("data.sql")
+			  .build();
+	}
   
   @Bean
   public HibernateJpaVendorAdapter jpaVendorAdapter() {
@@ -48,8 +43,7 @@ public class DataConfig {
   
   @Bean
   public EntityManagerFactory entityManagerFactory() {
-	  LocalContainerEntityManagerFactoryBean emf = new
-	  LocalContainerEntityManagerFactoryBean();
+	  LocalContainerEntityManagerFactoryBean emf = new LocalContainerEntityManagerFactoryBean();
 	  emf.setDataSource(dataSource());
 	  emf.setJpaVendorAdapter(jpaVendorAdapter());
 	  emf.setPersistenceUnitName("contactsPU");

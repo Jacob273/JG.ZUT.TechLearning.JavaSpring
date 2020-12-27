@@ -12,6 +12,7 @@ import contacts.data.ContactRepository;
 @Controller
 @RequestMapping("/")
 public class HomeController {
+	
 	@Autowired
 	ContactRepository contactRepository;
 
