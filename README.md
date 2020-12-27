@@ -9,7 +9,7 @@ Java is a class-based, object-oriented programming language that is designed to 
 # Labs
 * lab01 - spring bean, ioc first app
 * lab02 - ioc through java spring configuration, xml and mix of both @component-scan annotation, @profiles
-* lab03 - aspected oriented programming in java
+* lab03 - aspect oriented programming in java
 * lab04 - mvc & tomcat
 * lab05 - POST/GET, javax validation, html form
 * lab06 - Hibernate ORM
