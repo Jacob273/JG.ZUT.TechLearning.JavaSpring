@@ -2,6 +2,7 @@ package concert;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 
 import org.junit.Rule;
 /*
@@ -11,31 +12,78 @@ import org.junit.Test;
 import org.junit.contrib.java.lang.system.StandardOutputStreamLog;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.test.AssertThrows;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.TestExecutionListeners;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.test.context.support.DependencyInjectionTestExecutionListener;
 
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration(classes=ConcertConfig.class)
+@TestExecutionListeners(listeners = {DependencyInjectionTestExecutionListener.class})
 public class ConcertTest {
 
+	@Autowired
 	Performance perf = new Woodstock();
 
 	@Rule
 	public final StandardOutputStreamLog log = new StandardOutputStreamLog();
 
 	@Test
-	public void performanceIsNotNullTest() {
-		assertNotNull("koncert powinen być przygotowany", perf);
+	public void performancesAreAvailable() 
+	{
+		Performance perf1 = GetPerformanceByName("w1");
+		Performance perf2 = GetPerformanceByName("w2");
+		
+		assertNotNull("Woodstock no. 1 is null :(", perf);
+		assertNotNull("Woodstock no. 2 is null :(", perf2);
 	}
 	
 	@Test
-	public void performanceTest() {
-		log.clear();
+	public void verifyThatAspectsRunProperlyAroundWoodStock1() {
+		
+		Performance perf = GetPerformanceByName("w1");
+		
 		perf.perform();
-	    assertEquals(
-	    		"Wyłączenie telefonów\r\n"
-	    		+ "Zajęcie miejsc\r\n"
-	    		+ "Koncert Woodstock...\r\n"
-	    		+ "Brawa i oklaski!!!\r\n",	            
-	            log.getLog());
+		String expectedResult = "Wylaczenie telefonow\r\n" + 
+								"Zajecie miejsc\r\n" + 
+								"Koncert Woodstock...\r\n" + 
+								"Brawa i oklaski!!!\r\n";
+		
+		String actualResult = log.getLog();
+	    assertEquals(expectedResult, actualResult);
 	}
+
+	@Test
+	public void verifyThatAspectsRunProperlyWhenWoodstock2Fails() 
+	{
+		try 
+		{
+			Performance perf2 = GetPerformanceByName("w2");
+			perf2.perform();
+			
+    	} 
+		catch (Throwable t) 
+		{
+    		assertTrue(t instanceof RuntimeException);
+    		
+    		String expectedResult = "Wylaczenie telefonow\r\n" + 
+					"Zajecie miejsc\r\n" + 
+					"Koncert Woodstock 2 ...\r\n" + 
+					"Domaganie sie zwrotu za bilety\r\n";
+
+    		String actualResult = log.getLog();
+    		assertEquals(expectedResult, actualResult);
+    		
+
+    	}
+	    
+	}
+
+	private Performance GetPerformanceByName(String name) {
+		AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext(ConcertConfig.class);
+		Performance perf2 = (Performance) ctx.getBean(name);
+		return perf2;
+	}
+	
 }
