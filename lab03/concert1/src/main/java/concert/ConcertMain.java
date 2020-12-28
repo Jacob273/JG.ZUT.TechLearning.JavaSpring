@@ -1,9 +1,15 @@
 package concert;
 
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
 public class ConcertMain {
 
 	public static void main(String[] args) {
-		Performance p = new Woodstock();
-		p.perform();
+		
+		AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext(ConcertConfig.class);
+		Performance perf = ctx.getBean(Performance.class);
+		perf.perform();
+		ctx.close();
 	}
 }
