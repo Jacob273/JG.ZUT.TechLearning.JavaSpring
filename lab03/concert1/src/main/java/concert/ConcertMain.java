@@ -1,7 +1,6 @@
 package concert;
 
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class ConcertMain {
 
@@ -9,7 +8,9 @@ public class ConcertMain {
 		
 		AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext(ConcertConfig.class);
 		Performance perf = ctx.getBean(Performance.class);
+		Performance perf2 = (Performance) ctx.getBean("w2");
 		perf.perform();
+		perf2.perform();
 		ctx.close();
 	}
 }
