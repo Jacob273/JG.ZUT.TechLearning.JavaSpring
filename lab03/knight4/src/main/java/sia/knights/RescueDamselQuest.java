@@ -13,7 +13,7 @@ public class RescueDamselQuest implements Quest {
 	public void embark(Horse horse) {
 		if (horse != null)
 			System.out.print("Wsiadam na konia i ");
-		System.out.println("podejmuję misję ratowania niewiasty.");
+		System.out.println("podejmuje misje ratowania niewiasty.");
 	}
 
 }

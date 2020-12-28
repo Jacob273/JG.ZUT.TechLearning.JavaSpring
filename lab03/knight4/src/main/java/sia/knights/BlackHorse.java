@@ -1,7 +1,8 @@
 package sia.knights;
 
-import java.io.PrintStream;
+import org.springframework.stereotype.Component;
 
+@Component
 public class BlackHorse implements Horse {
 	public BlackHorse() {
 	}
